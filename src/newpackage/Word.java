@@ -24,8 +24,16 @@ public class Word {
 
     public char getLetter() {
         return Letter;
+    
+   }
+    public boolean getCorrectLetter() {
+        return CorrectLetter;
+     }
+    
+    public boolean getCompleteWord() {
+        return CompleteWord;
     }
-
+    
     public String getWord() {
         return Word;
     }

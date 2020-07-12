@@ -29,6 +29,9 @@ public class Ahorcado extends javax.swing.JFrame {
 
         btnGenerete = new javax.swing.JButton();
         lblWord = new java.awt.Label();
+        txtLetra = new java.awt.TextField();
+        btnTry = new javax.swing.JButton();
+        lblMsg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,6 +39,15 @@ public class Ahorcado extends javax.swing.JFrame {
         btnGenerete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenereteActionPerformed(evt);
+            }
+        });
+
+        txtLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        btnTry.setText("Intentar");
+        btnTry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTryActionPerformed(evt);
             }
         });
 
@@ -47,21 +59,35 @@ public class Ahorcado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(btnGenerete))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnTry))
+                            .addComponent(btnGenerete)
+                            .addComponent(lblMsg)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
+                        .addGap(52, 52, 52)
                         .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnGenerete)
-                .addGap(36, 36, 36)
+                .addGap(42, 42, 42)
                 .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTry))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblMsg)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
+
+        txtLetra.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,11 +109,24 @@ public class Ahorcado extends javax.swing.JFrame {
             String lblText = lblWord.getText();
             lblWord.setText(lblText + " _");
         }
+        Word w = new Word();
+        w.setWord(SelectedWord);
     }//GEN-LAST:event_btnGenereteActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnTryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTryActionPerformed
+        lblMsg.setText("");
+        if (txtLetra.getText().length()!= 1 ){
+            lblMsg.setText("Cantidad de caracteres invalida");
+        }
+        
+        else {
+            Word w = new Word();
+            w.setLetter(txtLetra.getText().charAt(0));
+        }
+        
+    }//GEN-LAST:event_btnTryActionPerformed
+
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -122,6 +161,9 @@ public class Ahorcado extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerete;
+    private javax.swing.JButton btnTry;
+    private javax.swing.JLabel lblMsg;
     private java.awt.Label lblWord;
+    private java.awt.TextField txtLetra;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package newpackage;
+import java.awt.Color;
 import java.util.Random;
 /**
  *
@@ -32,8 +33,16 @@ public class Ahorcado extends javax.swing.JFrame {
         txtLetra = new java.awt.TextField();
         btnTry = new javax.swing.JButton();
         lblMsg = new javax.swing.JLabel();
+        lblBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 102, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnGenerete.setText("Generar palabra");
         btnGenerete.addActionListener(new java.awt.event.ActionListener() {
@@ -41,8 +50,12 @@ public class Ahorcado extends javax.swing.JFrame {
                 btnGenereteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnGenerete, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+        getContentPane().add(lblWord, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 280, 36));
 
         txtLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(txtLetra, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 45, -1));
+        txtLetra.getAccessibleContext().setAccessibleName("");
 
         btnTry.setText("Intentar");
         btnTry.addActionListener(new java.awt.event.ActionListener() {
@@ -50,40 +63,13 @@ public class Ahorcado extends javax.swing.JFrame {
                 btnTryActionPerformed(evt);
             }
         });
+        getContentPane().add(btnTry, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
+        getContentPane().add(lblMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 280, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTry))
-                    .addComponent(btnGenerete)
-                    .addComponent(lblMsg))
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(btnGenerete)
-                .addGap(45, 45, 45)
-                .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTry))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblMsg)
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
-
-        txtLetra.getAccessibleContext().setAccessibleName("");
+        lblBackGround.setBackground(new java.awt.Color(255, 153, 0));
+        lblBackGround.setForeground(new java.awt.Color(0, 0, 0));
+        lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/AhorcadoBackGround2.jpg"))); // NOI18N
+        getContentPane().add(lblBackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +111,11 @@ public class Ahorcado extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnTryActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formWindowOpened
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -156,11 +147,14 @@ public class Ahorcado extends javax.swing.JFrame {
                 new Ahorcado().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerete;
     private javax.swing.JButton btnTry;
+    private javax.swing.JLabel lblBackGround;
     private javax.swing.JLabel lblMsg;
     private java.awt.Label lblWord;
     private java.awt.TextField txtLetra;

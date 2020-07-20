@@ -5,6 +5,8 @@
  */
 package newpackage;
 
+import java.awt.Color;
+
 /**
  *
  * @author IM
@@ -62,6 +64,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Ahorcado ahorcado = new Ahorcado();
+         this.setVisible(false);
         ahorcado.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

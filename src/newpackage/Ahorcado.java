@@ -42,7 +42,7 @@ public class Ahorcado extends javax.swing.JFrame {
             }
         });
 
-        txtLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnTry.setText("Intentar");
         btnTry.addActionListener(new java.awt.event.ActionListener() {
@@ -56,29 +56,25 @@ public class Ahorcado extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTry))
-                            .addComponent(btnGenerete)
-                            .addComponent(lblMsg)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTry))
+                    .addComponent(btnGenerete)
+                    .addComponent(lblMsg))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnGenerete)
-                .addGap(42, 42, 42)
+                .addGap(45, 45, 45)
                 .addComponent(lblWord, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtLetra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTry))
@@ -119,7 +115,7 @@ public class Ahorcado extends javax.swing.JFrame {
             lblMsg.setText("Cantidad de caracteres invalida");
         }
         else {
-            w.setLetter(txtLetra.getText().charAt(0));
+            w.setLetter(txtLetra.getText().toUpperCase().charAt(0));
                 if(w.FindLetter(w.getWord(), w.getLetter())){
                     lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter()));
                 }else{

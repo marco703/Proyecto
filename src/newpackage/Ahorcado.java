@@ -92,9 +92,10 @@ public class Ahorcado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        Word w = new Word();
     private void btnGenereteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenereteActionPerformed
         // TODO add your handling code here:
-        lblWord.setText(" ");
+        lblWord.setText("");
         String[] x = {"PERRO", "GATO", "COMPUTADORA", "PROGRAMACION", "ZAPATO", "PATINETA", "UKELELE", "MANGO", "BOTELLA",
         "MARCIANOS", "ESCRITORIO", "VAPOR", "ORIENTE", "CORONAVIRUS", "VIKINGOS", "IDIOMA", "ESPAÑOL", "CUARENTENA"};
         Random rand = new Random();
@@ -109,7 +110,6 @@ public class Ahorcado extends javax.swing.JFrame {
             String lblText = lblWord.getText();
             lblWord.setText(lblText + " _");
         }
-        Word w = new Word();
         w.setWord(SelectedWord);
     }//GEN-LAST:event_btnGenereteActionPerformed
 
@@ -118,10 +118,13 @@ public class Ahorcado extends javax.swing.JFrame {
         if (txtLetra.getText().length()!= 1 ){
             lblMsg.setText("Cantidad de caracteres invalida");
         }
-        
         else {
-            Word w = new Word();
             w.setLetter(txtLetra.getText().charAt(0));
+                if(w.FindLetter(w.getWord(), w.getLetter())){
+                    lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter()));
+                }else{
+                    
+                }
         }
         
     }//GEN-LAST:event_btnTryActionPerformed

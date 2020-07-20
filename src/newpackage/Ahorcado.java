@@ -6,6 +6,7 @@
 package newpackage;
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.ImageIcon;
 /**
  *
  * @author IM
@@ -34,6 +35,7 @@ public class Ahorcado extends javax.swing.JFrame {
         btnTry = new javax.swing.JButton();
         lblMsg = new javax.swing.JLabel();
         lblintentos = new javax.swing.JLabel();
+        lblHead = new javax.swing.JLabel();
         lblBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +71,7 @@ public class Ahorcado extends javax.swing.JFrame {
 
         lblintentos.setText("Intentos Restantes: 5");
         getContentPane().add(lblintentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 140, 20));
+        getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 90, 60));
 
         lblBackGround.setBackground(new java.awt.Color(255, 153, 0));
         lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/AhorcadoBackGround2.jpg"))); // NOI18N
@@ -111,10 +114,10 @@ public class Ahorcado extends javax.swing.JFrame {
                 }else{
                     C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
                     lblintentos.setText("Intentos Restantes: "+C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos()));
-                    
+                    lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
         }
-        
+        txtLetra.setText("");
     }//GEN-LAST:event_btnTryActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -161,6 +164,7 @@ public class Ahorcado extends javax.swing.JFrame {
     private javax.swing.JButton btnGenerete;
     private javax.swing.JButton btnTry;
     private javax.swing.JLabel lblBackGround;
+    private javax.swing.JLabel lblHead;
     private javax.swing.JLabel lblMsg;
     private java.awt.Label lblWord;
     private javax.swing.JLabel lblintentos;

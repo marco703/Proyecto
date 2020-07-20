@@ -33,6 +33,7 @@ public class Ahorcado extends javax.swing.JFrame {
         txtLetra = new java.awt.TextField();
         btnTry = new javax.swing.JButton();
         lblMsg = new javax.swing.JLabel();
+        lblintentos = new javax.swing.JLabel();
         lblBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,8 +67,10 @@ public class Ahorcado extends javax.swing.JFrame {
         getContentPane().add(btnTry, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
         getContentPane().add(lblMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 280, 40));
 
+        lblintentos.setText("Intentos Restantes: 5");
+        getContentPane().add(lblintentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 140, 20));
+
         lblBackGround.setBackground(new java.awt.Color(255, 153, 0));
-        lblBackGround.setForeground(new java.awt.Color(0, 0, 0));
         lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/AhorcadoBackGround2.jpg"))); // NOI18N
         getContentPane().add(lblBackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
@@ -75,6 +78,7 @@ public class Ahorcado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
         Word w = new Word();
+        Chances C = new Chances();
     private void btnGenereteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenereteActionPerformed
         // TODO add your handling code here:
         lblWord.setText("");
@@ -105,6 +109,8 @@ public class Ahorcado extends javax.swing.JFrame {
                 if(w.FindLetter(w.getWord(), w.getLetter())){
                     lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter()));
                 }else{
+                    C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
+                    lblintentos.setText("Intentos Restantes: "+C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos()));
                     
                 }
         }
@@ -149,7 +155,7 @@ public class Ahorcado extends javax.swing.JFrame {
         });
         
         
-    }
+    }//Fin Main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerete;
@@ -157,6 +163,7 @@ public class Ahorcado extends javax.swing.JFrame {
     private javax.swing.JLabel lblBackGround;
     private javax.swing.JLabel lblMsg;
     private java.awt.Label lblWord;
+    private javax.swing.JLabel lblintentos;
     private java.awt.TextField txtLetra;
     // End of variables declaration//GEN-END:variables
 }

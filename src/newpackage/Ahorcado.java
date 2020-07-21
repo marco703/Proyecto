@@ -113,8 +113,9 @@ public class Ahorcado extends javax.swing.JFrame {
                     lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter()));
                 }else{
                     C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
-                    lblintentos.setText("Intentos Restantes: "+C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos()));
-                    lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
+                    int IntentosRestantes = C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos());
+                    lblintentos.setText("Intentos Restantes: "+ IntentosRestantes);
+                    //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
         }
         txtLetra.setText("");

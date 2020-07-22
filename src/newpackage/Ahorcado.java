@@ -114,13 +114,23 @@ public class Ahorcado extends javax.swing.JFrame {
                 }else{
                     C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
                     int IntentosRestantes = C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos());
-                    lblintentos.setText("Intentos Restantes: "+ IntentosRestantes);
+                    lblintentos.setText("Intentos restantes: "+ IntentosRestantes);
                     //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
         }
         txtLetra.setText("");
+        C.perder(C.getIntentos_Fallidos());
+        C.ganar(lblWord.getText());
+        if(C.getGameOver()){
+        cleaner();
+        }
     }//GEN-LAST:event_btnTryActionPerformed
-
+public void cleaner(){
+    lblMsg.setText("");
+    lblWord.setText("");
+    lblintentos.setText("Intentos restantes: 5");
+}
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         

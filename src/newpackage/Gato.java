@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gato;
+package newpackage;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -73,7 +73,7 @@ public abstract class Gato extends JFrame implements ActionListener{
                 JButton boton=(JButton) e.getSource(); 
                 if(turno==0){
                    if(boton.getText().equals("")){ 
-                    boton.setBackground(colorB.blue);
+                    boton.setBackground(Color.blue);
                     boton.setText("X");
                     boton.setEnabled(false);
                     turno=1;
@@ -82,7 +82,7 @@ public abstract class Gato extends JFrame implements ActionListener{
                 }else{
                     if(turno==1){
                      if(boton.getText().equals("")){ 
-                    boton.setBackground(colorB.white);
+                    boton.setBackground(Color.white);
                     boton.setText("O");
                     boton.setEnabled(false);
                     turno=0;

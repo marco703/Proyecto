@@ -102,7 +102,7 @@ for(int i=0;i<3;i++){
   } // fin del primer for 
 }// fin de la clase iniciardenuevo 
 
-
+// 
 
 
 }// fin del main 
